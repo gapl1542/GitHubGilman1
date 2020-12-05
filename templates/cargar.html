@@ -1,0 +1,42 @@
+{% extends 'base_template.html' %}
+
+{% block title %}Cargar{% endblock %}
+
+{% block content %}
+
+
+<section class="contenido">
+    <!--cuerpo-->
+    <div>
+        <div class="wrap" style="opacity: 80%">
+            <h1>Cargar Archivo</h1>
+            <form action="{{ url_for('uploader') }}" method="POST" enctype="multipart/form-data">
+
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <div>
+                    <br>
+              </div>
+
+              <div>
+                    {{ form.ourfile.label }}
+                    {{ form.ourfile }}<br>
+
+                </div>
+
+                {{ form.submit(class="form-control btn btn-primary ") }}
+
+                {% if error is not none  %}
+                  <span style="color: red;">{{ error }}</span>
+                {% endif %}
+            </form>
+
+        </div>
+    </div>
+
+
+</section>
+
+
+
+
+{% endblock %}

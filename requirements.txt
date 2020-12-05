@@ -1,0 +1,25 @@
+Click
+Flask
+Flask-Login
+Flask-SQLAlchemy
+Flask-WTF
+itsdangerous
+Jinja2
+MarkupSafe
+psycopg2
+python-slugify
+SQLAlchemy
+text-unidecode
+Werkzeug
+WTForms
+flask-migrate
+DateTime
+collections-extended
+scikit-learn
+numpy
+collection
+Counter
+py-collections
+fitz
+
+las versiones hay que actualizarlas, descarga las mas nuevas

@@ -1,0 +1,25 @@
+{% extends 'base_template.html' %}
+
+{% block title %}Mis Comenarios{% endblock %}
+{% block content%}
+
+<h1 style = "padding-top: 10px">Comentarios</h1>
+<br>
+</br>
+
+      {% for comenta in coment %}
+
+
+                <h3>Titulo del archivo: {{comenta.title_pdf}}</h3>
+                <h4>Comentario de: {{comenta.username}}</h4>
+                <h4>Asunto: {{comenta.title_coments}}</h4>
+                <p>Fecha del comentario: {{comenta.uptime}}</p>
+                <p>{{comenta.post}}</p>
+                <br>
+                </br>
+
+
+      {% endfor %}
+
+
+{% endblock %}

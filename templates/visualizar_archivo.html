@@ -1,0 +1,56 @@
+{% extends 'base_template.html' %}
+
+{% block title %}Mis Archivos{% endblock %}
+
+{% block content %}
+<h1>Visualizar</h1>
+<h3>{{file.title}}</h3>
+
+<h4>Autor: {{acc.username}}</h4>
+
+<br>
+</br>
+<section class="contenido">
+    <!--cuerpo-->
+    <div>
+        <div class="wrap" style="opacity: 80%">
+        <div style="border-style: double; padding: 20px; border-radius: 10px;">
+
+            <div  align="center" style="padding-bottom : 5px;">
+                <h3>Comenta el PDF</h3>
+            </div>
+          <form action="{{ url_for('comentspostForm', username_pdf = acc.username, id_pdf = file.id, title_pdf = file.title) }}" method="POST"enctype="multipart/form-data">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+            <div class="form-group">
+                {{ form.title.label }}
+                {{ form.title(class="form-control", placeholder="titulo del comentario") }}
+
+            </div>
+            <div class="form-group">
+                {{ form.post.label }}
+                {{ form.post(class="form-control", placeholder="Escribe tu comentario") }}
+
+            </div>
+            <div class="form-group">
+              {{ form.submit(class="form-control btn btn-primary ") }}
+            </div>
+        </form>
+        </div>
+          <br>
+
+          </br>
+          <a href="{{ url_for('return_file', filetitle = file.title) }}"target ="_blank"class="form-control btn btn-primary" name="csrf_token" value="{{ csrf_token() }}" > Descargar  </a>
+<!-- posible uso
+            <form action="{{ url_for('return_file', filetitle = filetitle) }}" method="GET" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <div>
+                    <br>
+                </div>
+                {{ form.submit(class="form-control btn btn-primary ") }}
+            </form>
+!-->
+        </div>
+    </div>
+
+{% endblock %}

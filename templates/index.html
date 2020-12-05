@@ -1,0 +1,296 @@
+{% if band %}
+  {% extends 'topnavbar_out.html' %}
+{% else %}
+  {% extends 'topnavbar.html' %}
+{%endif%}
+
+{% block title %}MAIN{% endblock %}
+
+{% block content %}
+    <!-- HEADER -->
+    <header class="main-header" style="background-image: url('static/img/background.jpg')">
+      <div class="background-overlay text-white py-5">
+        <div class="container">
+          <div class="row d-flex h-100">
+            <div class="col-sm-6 text-center justify-content-center align-self-center">
+              <h1>
+                Nombre del proyecto mas un logo
+              </h1>
+              <p>parrafo corto que represente lo que hacemos, algo como pdf y redes neuronales </p>
+              <a href="#" class="btn btn-outline-secondary btn-lg text-white">
+                Read More
+              </a>
+            </div>
+            <div class="col-sm-6">
+              <img src="static/img/product.jpg" class="img-fluid d-none d-sm-block">
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- NEWSLETTER  -->
+  {% if band %}
+    <div class=" bg-dark text-white " style="margin-left: 0px; margin-right: 0px; padding-top: 50px; padding-bottom:50px" >
+
+      <h1 class="container">Bienvenido {{username}}</h1>
+
+    </div>
+
+  {% else %}
+    <section id="newsletter" class="bg-dark text-white">
+
+      <div class="container " style="padding-top: 50px; padding-bottom: 50px">
+
+
+          <form  action="{{ url_for('login') }}" method="post">
+            <input type="hidden" name = "csrf_token" value = "{{csrf_token()}}"/>
+
+          <div class="form-row ">
+          <div class="col-md-4">
+            <input type="text" class="form-control form-control-lg"  name="username" placeholder="Username" id="username" required/>
+          </div>
+
+          <div class="col-md-4">
+            <input type="password" class="form-control form-control-lg" name="password" placeholder="Password" id="password" required/>
+          </div>
+
+          <div class="col-md-4">
+
+            <button type="submit" value="Login" class="btn btn-primary btn-lg btn-block" name="">
+              Login
+            </button>
+          </div>
+        </div>
+        </form>
+        </div>
+
+    </section>
+    {% endif %}
+
+    <!-- sobre el proyecto -->
+    <section class="m5 text-center bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="m-5">
+            <h3>que hace este aplicacion web?</h3>
+            <p>
+              Consectetur dolor at delectus dolores fugiat! Rerum inventore cumque quidem corporis iusto temporibus nesciunt minima! Harum harum qui dolores natus dolore repudiandae quae animi aliquid nobis sed? Quod culpa quia?
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- caracteristicas -->
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card text-center border-primary">
+              <div class="card-body">
+                <h3>caracteristicas del proycto uno</h3>
+                <p>
+                  Amet alias a ipsa tempora ullam asperiores aperiam rem?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-white bg-primary">
+              <div class="card-body">
+                <h3>caracteristicas del proycto uno</h3>
+                <p>
+                  Amet alias a ipsa tempora ullam asperiores aperiam rem?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-center border-primary">
+              <div class="card-body">
+                <h3>caracteristicas del proycto uno</h3>
+                <p>
+                  Amet alias a ipsa tempora ullam asperiores
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-white bg-primary">
+              <div class="card-body">
+                <h3>caracteristica Four</h3>
+                <p>
+                  Amet alias a ipsa tempora ullam asperiores aperiam rem?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TEAM -->
+    <section class="text-center team">
+      <div class="container p-5">
+        <h1 class="text-center text-white">PDF FAVORITOS</h1>
+        <p class="text-white">
+          Adipisicing unde eum odio aliquam dolor ad voluptas expedita consequuntur aperiam inventore eaque. Dolorum facilis aut eum a delectus. Fugit velit quas harum quisquam amet provident inventore. Repudiandae repudiandae delectus.
+        </p>
+        <div class="row">
+          <!-- USER TEAM -->
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <img src="static/img/person.png" class="img-fluid rounded-circle w-50">
+                <h3>John Carter</h3>
+                <p>
+                  IMAGEN O INFO DEL PDF Y EL AUTOR
+                </p>
+                <div class="d-flex flex-row justify-content-center">
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </div>
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <img src="static/img/person.png" class="img-fluid rounded-circle w-50">
+                <h3>John Carter</h3>
+                <p>
+                  IMAGEN O INFO DEL PDF Y EL AUTOR
+                </p>
+                <div class="d-flex flex-row justify-content-center">
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </div>
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <img src="static/img/person.png" class="img-fluid rounded-circle w-50">
+                <h3>John Carter</h3>
+                <p>
+                  IMAGEN O INFO DEL PDF Y EL AUTOR
+                </p>
+                <div class="d-flex flex-row justify-content-center">
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </div>
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="card">
+              <div class="card-body">
+                <img src="static/img/person.png" class="img-fluid rounded-circle w-50">
+                <h3>John Carter</h3>
+                <p>
+                  IMAGEN O INFO DEL PDF Y EL AUTOR
+                </p>
+                <div class="d-flex flex-row justify-content-center">
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  </div>
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                  </div>
+                  <div class="p-4">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- ACCORDION -->
+    <section class="container text-center p-5">
+      <div class="row">
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  ¿Question One?
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Collapsible Group Item #2
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Collapsible Group Item #3
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- CONTACT -->
+
+{% endblock %}

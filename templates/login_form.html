@@ -1,0 +1,52 @@
+{% extends 'topnavbar.html' %}
+
+
+
+{% block title %}login{% endblock %}
+{% block content %}
+
+
+  <section class="register-account">
+        <div class="signform">
+          <div class="left"><a href="{{ url_for('show_signup_form') }}" style="float:right;margin-right:35px;font-size: 0.9em;" class="bts-a">Don't have an account? Sign up!</a>
+            <div class="bts">
+              <a href="#" class="fblogin social"><i class="fab fa-facebook-square"></i><span>Sign in with Facebook</span></a>
+               <a href="#" class="twlogin social"><i class="fab fa-twitter"></i><span>Sign in with Twitter</span></a>
+              <a href="#" class="gplogin social"><i class="fab fa-google-plus-g"></i><span>Sign in with Google</span></a>
+            </div>
+          </div>
+          <div class="right">
+              <div class="headit">
+                <h4>Login To Your Account</h4>
+              </div>
+              <div class="form">
+                <form class="login-form"   method="post" >
+
+                  <input type="hidden" name = "csrf_token" value = "{{csrf_token()}}"/>
+
+
+
+                  {{ form.email.label }}
+                {{ form.email(class=" login-form", placeholder="email") }}
+                {% for error in form.email.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+
+                  {{ form.password.label }}
+                                 {{ form.password (class=" login-form", placeholder="Password") }}
+                                 {% for error in form.password.errors %}
+                                 <span style="color: red;">{{ error }}</span>
+                                 {% endfor %}
+                  {{ form.submit(class="subbt " , style="border:none;") }}
+                <!--  <div  id="msg">{{ msg }}</div>-->
+                      </form>
+
+                      <div>{{ form.remember_me(type="checkbox") }} {{ form.remember_me.label }}</div>
+
+              <!--  <input type="checkbox" id="remember" name="remember"><span style="color:#b6b6b6;font-size: 0.9em;"> Remember Me</span><a href="#">Forgot your password?</a>
+              -->
+            </div>
+          </div>
+        </div>
+  </section>
+{% endblock %}

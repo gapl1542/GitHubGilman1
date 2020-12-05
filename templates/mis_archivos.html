@@ -1,0 +1,42 @@
+{% extends 'base_template.html' %}
+
+{% block title %}Mis Archivos{% endblock %}
+
+{% block content %}
+<h1>Mis Archivos</h1>
+
+<table class="table  table-bordered">
+  <thead>
+      <tr>
+          <th>Titulo</th>
+          <th>Autor</th>
+          <th>Fecha de subida</th>
+          <th>Categoria</th>
+      </tr>
+  </thead>
+  <tbody>
+
+
+        {% for file in fil %}
+
+          <tr>
+          <td>{{ file.title}}</td>
+          <td>{{ acc['username'] }}</td>
+          <td>{{file.uptime}}</td>
+          <td>{{file.category}}</td>
+          <td>
+             <a href="{{ url_for('show_files', filetitle = file.title, username = file.username ) }}"> Visualizar  </a>
+          </td>
+          </tr>
+        {% endfor %}
+
+
+  </tbody>
+</table>
+
+
+
+
+
+
+{% endblock %}

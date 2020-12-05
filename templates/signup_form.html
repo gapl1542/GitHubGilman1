@@ -1,0 +1,79 @@
+{% extends 'topnavbar.html' %}
+
+
+
+{% block title %}Register{% endblock %}
+{% block content %}
+ <div class="container">
+   <div class="row main">
+    <div class="main-login main-center">
+    <h5>Register New user or login existing account</h5>
+     <form action="{{ url_for('show_signup_form') }}" method="post" autocomplete="off">
+
+
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+      <div class="form-group">
+       <div  class="cols-sm-2 control-label">{{form.fullname.label()}}</div>
+       <div class="cols-sm-10">
+        <div class="input-group">
+         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+         {{ form.fullname(class="form-control", placeholder="Your name") }}
+         {% for error in form.fullname.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+       </div>
+      </div>
+
+      <div class="form-group">
+       <label for="email" class="cols-sm-2 control-label">{{ form.email.label }}</label>
+       <div class="cols-sm-10">
+        <div class="input-group">
+<!--oooooooojoooooooo-->
+
+         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+       {{ form.email(class="form-control", placeholder="Enter your Email") }}
+            {% for error in form.email.errors %}
+                 <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+       </div>
+      </div>
+
+      <div class="form-group">
+       <label for="username" class="cols-sm-2 control-label">{{ form.username.label }}</label>
+       <div class="cols-sm-10">
+        <div class="input-group">
+
+         <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+          {{ form.username(class="form-control", placeholder="Enter your Username") }}
+        </div>
+       </div>
+      </div>
+
+      <div class="form-group">
+       <label for="password" class="cols-sm-2 control-label">{{ form.password.label }}</label>
+       <div class="cols-sm-10">
+        <div class="input-group">
+         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+          {{ form.password(class="form-control", placeholder="Password") }}
+        </div>
+       </div>
+      </div>
+      {% if error %}
+       <p style="color: red;"><strong>Error:</strong> {{ error }}
+      {% endif %}
+      <div class="form-group ">
+       <div id="msg">{{ msg }}</div>
+       {{ form.submit(class="form-control btn btn-primary ") }}
+       <p style="padding:5px;">
+       <a href="{{ url_for('login') }}" class="btn btn-dark ">Login</a></p>
+
+      </div>
+
+     </form>
+    </div>
+   </div>
+  </div>
+ {% endblock %}
